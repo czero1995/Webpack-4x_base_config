@@ -20,7 +20,7 @@ module.exports = {
 		filename: "./js/[name].js", 
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js?$/,
 				exclude: /node_modules/,
@@ -65,7 +65,8 @@ module.exports = {
 			 {
 			 	//提取html里面的img文件
 		        test: /\.(htm|html)$/i,
-		        loader: 'html-withimg-loader',
+				loader: 'html-withimg-loader',
+				exclude: /node_modules/,
 		   },
 			   {
 			   	//图片打包
@@ -88,7 +89,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: '首页',
 			filename: 'index.html',
-			template: 'ejs-render-loader!pages/index.ejs',			
+			template: 'ejs-loader!pages/index.ejs',			
 			chunks: ['index','one'],
 			hash:true,
 			cach:true,
@@ -103,7 +104,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: '第二页',
 			filename: 'second.html',
-			template: 'ejs-render-loader!pages/second.ejs',			
+			template: 'ejs-loader!pages/second.ejs',			
 			chunks: ['second'],
 			hash:true,
 			cach:true,
@@ -118,7 +119,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: '第三页',
 			filename: 'three.html',
-			template: 'ejs-render-loader!pages/three.ejs',			
+			template: 'ejs-loader!pages/three.ejs',			
 			chunks: ['three'],
 			hash:true,
 			cach:true,

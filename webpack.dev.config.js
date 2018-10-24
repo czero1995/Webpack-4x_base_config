@@ -31,16 +31,19 @@ module.exports = {
 			},
 			{
 		        test: /\.(less|css)$/,
-		        use:[ 'style-loader','css-loader','less-loader'],
+				use:[ 'style-loader','css-loader','less-loader'],
+				exclude: /node_modules/,
 		     },
 			{
 			      test: /\.ejs$/,
-			      loader: "ejs-html-loader",			     
+				  loader: "ejs-html-loader",			     
+				  exclude: /node_modules/,
 			  },
 			 {
 			 	//提取html里面的img文件
 		        test: /\.(htm|html)$/i,
-		        loader: 'html-withimg-loader',
+				loader: 'html-withimg-loader',
+				exclude: /node_modules/,
 		   },
 			   {
 			   	//图片打包
@@ -52,7 +55,8 @@ module.exports = {
 			   		 	name:'[name].[ext]',		   		 	
 				      	useRelativePath:true
 				    }
-			   	}
+				   },
+				   exclude: /node_modules/,
 			   },			 
 		]
 	},
@@ -64,18 +68,18 @@ module.exports = {
 			// template: `pages/index.ejs`,			
 			chunks: ['index','one'],
 		}),
-		// new HtmlWebpackPlugin({
-		// 	title: '第二页',
-		// 	filename: 'second.html',
-		// 	template: 'ejs-render-loader!pages/second.ejs',			
-		// 	chunks: ['second'],
-		// }),
-		// new HtmlWebpackPlugin({
-		// 	title: '第三页',
-		// 	filename: 'three.html',
-		// 	template: 'ejs-render-loader!pages/three.ejs',			
-		// 	chunks: ['three'],
-		// }),
+		new HtmlWebpackPlugin({
+			title: '第二页',
+			filename: 'second.html',
+			template: 'ejs-loader!pages/second.ejs',			
+			chunks: ['second'],
+		}),
+		new HtmlWebpackPlugin({
+			title: '第三页',
+			filename: 'three.html',
+			template: 'ejs-loader!pages/three.ejs',			
+			chunks: ['three'],
+		}),
 		new CopyWebpackPlugin([{
 		    from: __dirname + '/img',
 		    to:'img/'
