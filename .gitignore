@@ -1,0 +1,8 @@
+/node_modules/
+/dist/
+.idea
+.editorconfig
+.project
+/page/
+/deposit/
+/comm_lib/
