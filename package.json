@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --optimize-minimize --mode production",
-    "dev": "webpack-dev-server --config webpack.dev.config.js --mode development"
+    "build": "webpack --optimize-minimize  --mode production",
+    "dev": "webpack-dev-server --config webpack.dev.config.js  --open --mode development"
   },
   "author": "",
   "license": "ISC",
