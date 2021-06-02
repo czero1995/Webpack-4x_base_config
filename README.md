@@ -1,6 +1,6 @@
 # 基于Webpack 4.0封装的多页面基础配置。
  
- [在线查看demo](http://webpack.czero.cn)
+ [在线查看demo](http://webpack.fancystore.cn)
     
 
 ### 项目中Webpack实现功能:
